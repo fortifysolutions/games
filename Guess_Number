@@ -1,0 +1,105 @@
+def won_prize(x):
+    gift = {
+        "1" : "APPLE",
+        "2" : "BANANA",
+        "3" : "A TEA",
+        "4" : "COFFEE"
+    }
+    for i in x:
+        gift1 = gift.get(i)
+    return(gift1)
+
+
+def char_len():
+    char = input('Enter your Name: ')
+    if len(char) < 3:
+        print(' Your name is too short')
+    elif len(char) > 50:
+        print(' Your name is too long')
+    else:
+        print(f'HEllo Mr.{char}')
+
+# Secret Number Calculation
+def rd(x):
+    num = 0
+    if x < 5:
+        num = x + 2
+    else:
+        num = x - 4
+    return(num)
+
+# Input from user for Number of Chances
+def guess_number2():
+    w = True
+    while w is True:
+            try:
+                guess2 = int(input('\n\033[0;30;43mEnter nos. of GUESSES YOU want to try (select any number from 1 to 9): \033[0m'))
+                if guess2 > 0 and guess2 < 10:
+                    guess2 = guess2
+                    w = False
+                    break
+                else:
+                    print('\n\033[1;31;40mPlease select number from 1 to 9 only\033[0m')
+            except ValueError:
+                print('\n\033[1;31;40mEnter VALID number\033[0m')
+    return(guess2)
+
+
+def guess_number():
+    print(
+        '\n\t\033[3;30;44mG\033[3;31;44mU\033[3;32;44mE\033[3;35;44mS\033[3;35;44mS\033[0m \033[3;30;44mG\033[3;31;44mA\033[3;32;44mM\033[3;33;44mE\033[0m\n\n')
+    print('\033[0;35;40mThis Game all About Guessing the Right Number in a given Chances.\n')
+    print('How To Play This GUESS Number Game:\n')
+    print(
+        '1. Select the number of Guesses or Chance you want to have to SPELL out right Number.(Select between 1 to 9 Nos)')
+    print('2. Start Guessing the Number (i.e between 1 to 9)')
+    print('3. After getting the Right Guess, Get the WINNER Prize')
+    print('\033[0m')
+
+    return ()
+
+
+def random_number():
+    guess_number()
+    pause = input('\n\t\tEnter any Number to Play the GAME: \n')
+    print('\n\t\033[3;30;44mG\033[3;31;44mU\033[3;32;44mE\033[3;35;44mS\033[3;35;44mS\033[0m \033[3;30;44mG\033[3;31;44mA\033[3;32;44mM\033[3;33;44mE\033[0m\n\n')
+    print('\033[3;31;40m Lets Play Guess Game....\033[0m\n')
+    guess1 = 0
+    guess2 = guess_number2() # Taking Input from String
+    secret_number = rd(guess2)
+    while guess1 < guess2:
+        guess1 += 1
+        try:
+            print(f'\n\t\033[1;31;40m Attempt no. {guess1} / {guess2}\033[0m')
+            number = int(input('\n\033[1;37;44mEnter Guess number (between 1 to 9): \033[0m'))
+            if number == secret_number:
+                print(f'\n\033[0;32;40mAt Guess Nos.{guess1} from {guess2}, you make it right\n')
+                if number == 1:
+                    print('YOUR WON APPLE')
+                elif number == 2:
+                    print('YOUR WON BANANA')
+                elif number == 3:
+                    print('YOUR WON A CUP OF TEA')
+                elif number == 4:
+                    print('YOUR WON A CUP OF COFFEE')
+                elif number == 5:
+                    print('YOUR WON FIVE STAR')
+                elif number == 6:
+                    print('YOUR WON MY HEART')
+                elif number == 7:
+                    print('YOUR WON APPLE')
+                elif number == 8:
+                    print('YOUR WON AND GET ANOTHER CHANCE')
+                elif number == 9:
+                    print('YOUR WON LEMON')
+                print('\n\033[1;34;45m CONGRATULATION FOR YOUR WIN!!!!!\033[0m')
+                break
+            else:
+                print(f'\n\033[1;31;40mHard Luck, in {guess1} guess you missed\033[0m')
+        except ValueError:
+            print('\n\033[1;31;40mPlease enter valid input\033[0m')
+            guess1 -= 1
+    return()
+
+
+random_number()
