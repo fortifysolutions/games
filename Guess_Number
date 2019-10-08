@@ -1,3 +1,26 @@
+import socket
+import uuid
+
+
+def macaddress():
+    print('\033[30;0;44m MAC Address in HEX\t\t:\033[31;1;40m ', hex(uuid.getnode()),'\033[0m')
+    #print(" add :--", end="")
+    #print("\033[31;1;40m The MAC Address is formatted way is :", end="")
+    #print(': '.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff) for ele in range(0,8*6,8)][::-1]))
+    #print('\033[0m')
+    x = ': '.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff) for ele in range(0,8*6,8)][::-1])
+    print('\033[30;0;44m MAC Address\t\t: \033[31;1;40m', x ,'\033[0m')
+
+
+def get_system_IP():
+    s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    #print(s)
+    print('\033[30;0;44m IP Address \t\t: \033[31;1;40m',s.getsockname(), '\033[0m')
+    return s.getsockname()[0]
+
+
+
 def won_prize(x):
     gift = {
         "1" : "APPLE",
@@ -101,5 +124,6 @@ def random_number():
             guess1 -= 1
     return()
 
-
+macaddress()
+get_system_IP()
 random_number()
