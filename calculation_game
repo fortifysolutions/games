@@ -1,0 +1,83 @@
+import time
+import timeit
+import random
+
+
+def timer():
+    a = True
+    count = 1
+    limit = 5
+    start = time.time()
+    while a is True:
+        if count <= limit:
+            print('\r', count, end="")
+            count += 1
+            time.sleep(1)
+        elif count > limit:
+            stop = time.time()
+            print('time up', int(stop-start),'Seconds')
+            break
+            a = False
+
+
+def timer1():
+    a = True
+    count = 1
+    limit = 5
+    start = time.time()
+    while a is True:
+        if count <= limit:
+            print(count, end = " ")
+            count += 1
+            time.sleep(1)
+        elif count > limit:
+            stop = time.time()
+            print('time taken', int(stop-start),'Seconds')
+            break
+            a = False
+
+
+def genraterandom():
+    #random.random(100)
+    r1 = random.randint(0,100)
+    r2 = random.randint(0, 100)
+    r3 = random.randint(0, 100)
+    print(r1, '+', r2, '+', r3)
+    r4 = r1 + r2 + r3
+    r5 = int(input('Enter the reply: '))
+
+
+
+def main():
+    a = True
+    while a is True:
+        playgame = input('Enter any Value to Play the Game, or for EXIT, type [1]')
+        if playgame != 1:
+            start = time.time()
+            print('Sum of below Calculation')
+            r1 = random.randint(0, 100)
+            r2 = random.randint(0, 100)
+            r3 = random.randint(0, 100)
+            print(r1, '+', r2, '+', r3)
+            r4 = r1 + r2 + r3
+            try:
+                print('Enter the reply')
+                timer()
+                r5 = int(input('Enter the reply: '))
+            except ValueError:
+                Print('Enter valid Number')
+            stop = time.time()
+            timetaken = (stop - start)
+            if r5 == r4:
+                if timetaken > 5:
+                    print('U exceed the time by ,', timetaken - 5, 'sec')
+                elif timetaken <= 5:
+                    print('Congratulation, respond in: ',timetaken,'seconds')
+            elif r5 != r4:
+                print('Your reply is wrong')
+        elif playgame == 1:
+            print('Thank You')
+            break
+
+
+main()
