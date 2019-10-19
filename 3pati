@@ -7,11 +7,11 @@ print('\t', time.asctime(), '\n')
 
 
 def generate_random_number(x):
-    random_number = ['A','J','K','Q',1,2,3,4,5,6,7,8,9,10]
+    random_number = ['A','J','K','Q',2,3,4,5,6,7,8,9,10]
     r1 = random.choice(random_number)
     r2 = random.choice(random_number)
     r3 = random.choice(random_number)
-    print(f'Player {x}, your CARDS are :')
+    print(f'Player {x}, CARDS \033[31m[*][*][*]\033[0m')
     time.sleep(.5)
     print('\t', random.choice(random_number),'\t', end=" ")
     time.sleep(1)
@@ -26,38 +26,46 @@ def numberofplayer():
     a = True
     while a is True:
         try:
-            x = int(input('Enter number of player : '))
+            x = int(input('Enter number of player(s) : '))
             #a = False
             break
         except ValueError:
-            print('Enter Valid value')
+            print('\033[1;31m Enter Valid value\033[0m')
         except UnboundLocalError:
-            print('Enter Valid value')
+            print('\033[1;31m Enter Valid value\033[0m')
     return x
 
 
 def main():
-    start = time.time()
+
     i = 1
     x = numberofplayer()
     a = True
     while a is True:
         if i <= x:
-            print(f'Player {i} CARDS')
-            r4 = input('Enter anything to Generate 3 CARDs')
-            print('Please WAIT.....')
-            time.sleep(2)
+            print('--------------------------------------------')
+            print(f'\n\033[1;34m Player {i} CARDS\033[0m')
+            r4 = input('\nEnter anything to Generate 3 CARDs')
+            time.sleep(0.5)
+            print('\r\033[1;35mPlease WAIT.....\033[0m\n')
+            time.sleep(1.5)
             generate_random_number(i)
             time.sleep(2)
             i += 1
         elif i > x:
             a = False
-            print('Congratulations to WINNER!!!')
-            end = time.time()
-            total_time = int(end - start)
-            print('\nTotal Time you Spend in this GAME (Sec): ', total_time)
+            print('\t\033[1;34mCongratulations to WINNER!!!\033[0m')
             break
 
-
-
-main()
+start = time.time()
+print('\n\033[1;31mFORTIFY\033[0m SOLUTIONS\n\033[0;32mVersion:1\trelease date:18-10-2019\033[0m\n')
+while True:
+    main()
+    time.sleep(0.5)
+    a = input('\n To EXIT enter [1] else anyother KEY to CONTINUE......\n')
+    if a == '1':
+        end = time.time()
+        total_time = int(end - start)
+        print('\n*****************************************')
+        print('Total Time you Spend in this GAME (Sec): ', total_time)
+        break
