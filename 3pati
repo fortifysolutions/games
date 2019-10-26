@@ -30,14 +30,13 @@ def numberofplayer():
             #a = False
             break
         except ValueError:
-            print('\033[1;31m Enter Valid value\033[0m')
+            print('\033[1;31m (◔◡◔) Enter Valid value\033[0m')
         except UnboundLocalError:
-            print('\033[1;31m Enter Valid value\033[0m')
+            print('\033[1;31m (◔◡◔)Enter Valid value\033[0m')
     return x
 
 
 def main():
-
     i = 1
     x = numberofplayer()
     a = True
@@ -45,20 +44,23 @@ def main():
         if i <= x:
             print('--------------------------------------------')
             print(f'\n\033[1;34m Player {i} CARDS\033[0m')
-            r4 = input('\nEnter anything to Generate 3 CARDs')
+            r4 = input('\nEnter any key to Generate 3 CARDS')
             time.sleep(0.5)
             print('\r\033[1;35mPlease WAIT.....\033[0m\n')
-            time.sleep(1.5)
+            time.sleep(2)
             generate_random_number(i)
             time.sleep(2)
             i += 1
         elif i > x:
             a = False
-            print('\t\033[1;34mCongratulations to WINNER!!!\033[0m')
+            print('\n\t\033[1;34m🐓 ⋆ 🐫  🎀  𝒞🌺o𝓃𝑔𝓇𝒶𝓉𝓊𝓁𝒶𝓉𝒾🏵𝓃𝓈  🎀  🐫 ⋆ \n🐓\tCongratulations to WINNER!!!\033[0m')
             break
 
+print('\033[31m∙∙·▫▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ 𝔩丨𝓷𝓔 ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫▫·∙∙\033[0m')
 start = time.time()
-print('\n\033[1;31mFORTIFY\033[0m SOLUTIONS\n\033[0;32mVersion:1\trelease date:18-10-2019\033[0m\n')
+print('\n\033[1;31mFORTIFY\033[0m SOLUTIONS\n\033[0;32mVersion:1.01\trelease date:26-10-2019\033[0m')
+print(time.asctime(),'\n')
+print("\033[34m(¯`·.¸¸.·´¯`·.¸¸.->   🎀  𝟥 𝓅𝒶𝒶𝓉𝒾 GAME 🎀   >-.¸¸.·`¯´·.¸¸.·`¯)\033[0m\n")
 while True:
     main()
     time.sleep(0.5)
@@ -67,5 +69,7 @@ while True:
         end = time.time()
         total_time = int(end - start)
         print('\n*****************************************')
-        print('Total Time you Spend in this GAME (Sec): ', total_time)
+        print(f'\033[33mYou Spend {total_time} Seconds in this GAME')
+        time.sleep(1)
+        print('\nFORTIFY SOLUTIONS thanks and appriciate all members contribution and support\033[0m')
         break
