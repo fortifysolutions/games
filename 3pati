@@ -87,3 +87,7 @@ while True:
         time.sleep(1)
         print('\nFORTIFY SOLUTIONS thanks and appriciate all members contribution and support\033[0m')
         break
+file= open('LOG-SHEET.txt','a')
+file.write('LOG-SHEET\n>')
+file.write(time.asctime())
+file.close()
